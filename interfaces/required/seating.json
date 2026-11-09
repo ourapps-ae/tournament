@@ -1,0 +1,27 @@
+{
+  "id": "seating",
+  "type": "ae/seating",
+  "version": "1.0.0",
+  "notes": "What tournament needs from the seating component (see its provided interface).",
+  "operations": {
+    "list": {
+      "arguments": [
+        "state"
+      ],
+      "returns": "Seat[] ({id,computer,seat,...})"
+    },
+    "find": {
+      "arguments": [
+        "state",
+        "id"
+      ],
+      "returns": "Seat|undefined"
+    },
+    "people": {
+      "arguments": [
+        "state"
+      ],
+      "returns": "Seat[] where computer is false"
+    }
+  }
+}

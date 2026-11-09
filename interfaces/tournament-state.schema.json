@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ae/tournament-state",
+  "type": "object",
+  "required": ["entries", "ledger", "offers", "pendingBust", "winnerId", "finished"],
+  "additionalProperties": false,
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "place", "rebuysUsed", "startStack"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["in", "out"] },
+          "place": { "type": ["integer", "null"], "minimum": 1 },
+          "rebuysUsed": { "type": "integer", "minimum": 0 },
+          "startStack": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "ledger": { "description": "Opaque: the chip-ledger component's own state, stored as given." },
+    "offers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["playerId", "deadline", "autoAt"],
+        "additionalProperties": false,
+        "properties": {
+          "playerId": { "type": "string" },
+          "deadline": { "type": "number", "description": "action-clock milliseconds" },
+          "autoAt": { "type": ["number", "null"] }
+        }
+      }
+    },
+    "pendingBust": { "type": "array", "items": { "type": "string" } },
+    "winnerId": { "type": ["string", "null"] },
+    "finished": { "type": "boolean" }
+  }
+}

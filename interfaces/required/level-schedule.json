@@ -1,0 +1,20 @@
+{
+  "id": "level-schedule",
+  "type": "ae/level-schedule",
+  "version": "1.0.0",
+  "notes": "What tournament needs from the level-schedule component. The argument is milliseconds on the level clock (game-clock), which stops while the table is paused or rebuy offers are open. It is game-clock elapsed(clock,'level').",
+  "operations": {
+    "levelAt": {
+      "arguments": [
+        "elapsedMs:number"
+      ],
+      "returns": "number (level, from 1)"
+    },
+    "describe": {
+      "arguments": [
+        "elapsedMs:number"
+      ],
+      "returns": "unknown (level, blinds or equivalent, time to the next level, for clients)"
+    }
+  }
+}

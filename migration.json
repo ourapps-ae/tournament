@@ -1,0 +1,16 @@
+{
+  "format": 1,
+  "stores": [
+    { "id": "tournament-results", "schema": { "name": "ae/tournament-state", "version": "1.0.0", "file": "interfaces/tournament-state.schema.json" } }
+  ],
+  "export": [
+    { "format": "ndjson", "portable": true, "operation": "exportAll", "description": "One line per entry (place, rebuys used, stack at the last deal), per open rebuy offer and per pending bust-out, one summary line (winner, finished) and one opaque ledger line; each line carries a sha256 of its content." }
+  ],
+  "import": [
+    { "format": "ndjson", "portable": true, "operation": "importAll" }
+  ],
+  "steps": [],
+  "verification": { "counts": true, "checksums": "sha256 per record", "sampleReadBack": 20, "endToEnd": "tests/web.test.ts" },
+  "limits": { "maxMegabytes": 1, "requiresStop": false, "cannotPreserve": ["open rebuy offer deadlines are action-clock times and only mean something with the same clock state"] },
+  "retention": { "afterRemovalDays": 0 }
+}

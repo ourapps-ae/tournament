@@ -1,0 +1,204 @@
+{
+  "id": "tournament",
+  "type": "ae/tournament",
+  "version": "1.0.0",
+  "notes": "Built once: createTournament(settings, {ledger, schedule, seating}). Pure over a TournamentState; times are milliseconds on the table's action clock. Codes: notAllowed. levelAt and clockInfo take milliseconds on the level clock: game-clock elapsed(clock,'level').",
+  "settings": {
+    "startingStack": "integer, default 5000; the only starting-stack number the tournament uses (every entry is issued this through the ledger); chip-ledger's own startingStack is not read by it",
+    "rebuysPerPlayer": "integer, default 1",
+    "rebuyStack": "integer, default 5000",
+    "lastRebuyLevel": "integer, default 3; a rebuy is offered only when the level a round was dealt at is at most this",
+    "rebuyDecisionSeconds": "integer, default 30",
+    "tiebreak": "stackAtDeal|shared, default stackAtDeal"
+  },
+  "types": {
+    "Entry": "{id,status:in|out,place:number|null,rebuysUsed,startStack}",
+    "Offer": "{playerId,deadline:number,autoAt:number|null}",
+    "TournamentState": "{entries:Entry[],ledger:unknown,offers:Offer[],pendingBust:string[],winnerId:string|null,finished:boolean}",
+    "Standing": "{id,place:number|null,stack,rebuysUsed,out:boolean}"
+  },
+  "operations": {
+    "create": {
+      "arguments": [],
+      "returns": "TournamentState"
+    },
+    "start": {
+      "arguments": [
+        "seats:SeatingState"
+      ],
+      "returns": "TournamentState (every seat enters with startingStack issued through the ledger)"
+    },
+    "entry": {
+      "arguments": [
+        "t",
+        "id"
+      ],
+      "returns": "Entry|undefined"
+    },
+    "activeIds": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "string[]"
+    },
+    "isActive": {
+      "arguments": [
+        "t",
+        "id"
+      ],
+      "returns": "boolean"
+    },
+    "balance": {
+      "arguments": [
+        "t",
+        "id"
+      ],
+      "returns": "number"
+    },
+    "rebuysUsed": {
+      "arguments": [
+        "t",
+        "id"
+      ],
+      "returns": "number"
+    },
+    "place": {
+      "arguments": [
+        "t",
+        "id"
+      ],
+      "returns": "number|null"
+    },
+    "ledger": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "unknown (the chip-ledger state)"
+    },
+    "withLedger": {
+      "arguments": [
+        "t",
+        "ledger"
+      ],
+      "returns": "TournamentState"
+    },
+    "chipsIssued": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "number"
+    },
+    "startingStack": {
+      "arguments": [],
+      "returns": "number"
+    },
+    "rebuyStack": {
+      "arguments": [],
+      "returns": "number"
+    },
+    "levelAt": {
+      "arguments": [
+        "levelClockMs"
+      ],
+      "returns": "number (from the level schedule)"
+    },
+    "clockInfo": {
+      "arguments": [
+        "levelClockMs"
+      ],
+      "returns": "unknown (the level schedule's description)"
+    },
+    "roundStarted": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "TournamentState (records each active entry's stack for ranking bust-outs)"
+    },
+    "roundSettled": {
+      "arguments": [
+        "t",
+        "input:{level,actionMs,seats,computerDelayMs}"
+      ],
+      "returns": "TournamentState (active entries with no chips become pendingBust; each with a rebuy left, at a level up to lastRebuyLevel, gets an offer; a computer's offer carries autoAt = actionMs + computerDelayMs)"
+    },
+    "offers": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "Offer[]"
+    },
+    "hasOffers": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "boolean"
+    },
+    "levelClockRuns": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "boolean (false while rebuy offers are open: the level clock stands still; pass as runs.level to game-clock advance)"
+    },
+    "offerFor": {
+      "arguments": [
+        "t",
+        "id"
+      ],
+      "returns": "Offer|undefined"
+    },
+    "dueOffer": {
+      "arguments": [
+        "t",
+        "actionMs",
+        "seats"
+      ],
+      "returns": "{playerId,accept}|null (computer: accept at autoAt; person: decline at deadline)"
+    },
+    "nextOfferDue": {
+      "arguments": [
+        "t",
+        "seats"
+      ],
+      "returns": "number|null"
+    },
+    "resolve": {
+      "arguments": [
+        "t",
+        "id",
+        "accept"
+      ],
+      "returns": "{ok:true,state}|{ok:false,code:notAllowed} (accepting issues rebuyStack and uses a rebuy)"
+    },
+    "conclude": {
+      "arguments": [
+        "t",
+        "seats"
+      ],
+      "returns": "{state,outcome:continue|completed,winnerId} (pending bust-outs still without chips go out and are placed; one entry left wins; with no person left the computers are placed by stack and a clear leader wins)"
+    },
+    "cancel": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "TournamentState (finished, no winner, places made stand)"
+    },
+    "standings": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "Standing[] (placed entries by place, then the rest)"
+    },
+    "winner": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "string|null"
+    },
+    "isFinished": {
+      "arguments": [
+        "t"
+      ],
+      "returns": "boolean"
+    }
+  }
+}

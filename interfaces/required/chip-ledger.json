@@ -1,0 +1,40 @@
+{
+  "id": "chip-ledger",
+  "type": "ae/chip-ledger",
+  "version": "1.0.0",
+  "notes": "What tournament needs from the chip-ledger component. The ledger state is opaque to the tournament and JSON-serialisable; the game moves chips between players through the same component. The tournament issues every starting stack and rebuy itself, so chip-ledger's startingStack setting must not add a second stack.",
+  "operations": {
+    "create": {
+      "arguments": [],
+      "returns": "LedgerState"
+    },
+    "issue": {
+      "arguments": [
+        "ledger",
+        "playerId:string",
+        "amount:number"
+      ],
+      "returns": "LedgerState (new chips enter circulation for that player: starting stacks and rebuys)"
+    },
+    "balance": {
+      "arguments": [
+        "ledger",
+        "playerId:string"
+      ],
+      "returns": "number (chips held, 0 for an unknown player)"
+    },
+    "issued": {
+      "arguments": [
+        "ledger"
+      ],
+      "returns": "number (all chips ever issued)"
+    },
+    "setSeats": {
+      "arguments": [
+        "ledger",
+        "seats:{id:string,seat:number}[]"
+      ],
+      "returns": "LedgerState (each listed player's seat number recorded, so the odd chip goes by seat)"
+    }
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "format": 1,
+  "kind": "component",
+  "identity": {
+    "name": "ourapps-ae/tournament",
+    "version": "0.3.0",
+    "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
+    "sourceTreeDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+    "licenceStatus": "deferred"
+  },
+  "facilities": [
+    {
+      "id": "entries",
+      "description": "Every seated player enters with a starting stack issued through the chip ledger"
+    },
+    {
+      "id": "rebuys",
+      "description": "Rebuy offers with limits, level cut-off, deadlines and automatic computer acceptance"
+    },
+    {
+      "id": "eliminations",
+      "description": "Bust-outs placed by stack at the deal, shared places for ties"
+    },
+    {
+      "id": "results",
+      "description": "Finishing order, winner, cancellation, and result rows for web, Apple and Android clients"
+    }
+  ],
+  "documents": {
+    "contract": "CONTRACT.md",
+    "interfaces": [
+      "interfaces/required/chip-ledger.json",
+      "interfaces/required/level-schedule.json",
+      "interfaces/required/seating.json",
+      "interfaces/tournament-state.schema.json",
+      "interfaces/tournament.json",
+      "suitability.json",
+      "migration.json"
+    ],
+    "examples": [
+      "examples/consumer.ts"
+    ],
+    "licenceNotice": "LICENCE"
+  },
+  "collect": [
+    {
+      "id": "startingStack",
+      "type": "integer",
+      "grammar": "integer",
+      "required": false,
+      "secret": false,
+      "default": 5000
+    },
+    {
+      "id": "rebuysPerPlayer",
+      "type": "integer",
+      "grammar": "integer",
+      "required": false,
+      "secret": false,
+      "default": 1
+    },
+    {
+      "id": "rebuyStack",
+      "type": "integer",
+      "grammar": "integer",
+      "required": false,
+      "secret": false,
+      "default": 5000
+    },
+    {
+      "id": "lastRebuyLevel",
+      "type": "integer",
+      "grammar": "integer",
+      "required": false,
+      "secret": false,
+      "default": 3
+    },
+    {
+      "id": "rebuyDecisionSeconds",
+      "type": "integer",
+      "grammar": "integer",
+      "required": false,
+      "secret": false,
+      "default": 30
+    },
+    {
+      "id": "tiebreak",
+      "type": "string",
+      "grammar": "identifier",
+      "required": false,
+      "secret": false,
+      "default": "stackAtDeal"
+    }
+  ],
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "executable": false
+    },
+    {
+      "path": "INSTRUCTIONS.md",
+      "executable": false
+    },
+    {
+      "path": "LICENCE",
+      "executable": false
+    },
+    {
+      "path": "SOURCE.md",
+      "executable": false
+    },
+    {
+      "path": "examples/consumer.ts",
+      "executable": false
+    },
+    {
+      "path": "implementation/android/src/main/java/ae/tournament/ResultRows.kt",
+      "executable": false
+    },
+    {
+      "path": "implementation/apple/Sources/ResultRows.swift",
+      "executable": false
+    },
+    {
+      "path": "implementation/server/migrate.ts",
+      "executable": false
+    },
+    {
+      "path": "implementation/server/tournament.ts",
+      "executable": false
+    },
+    {
+      "path": "implementation/web/results.ts",
+      "executable": false
+    },
+    {
+      "path": "interfaces/required/chip-ledger.json",
+      "executable": false
+    },
+    {
+      "path": "interfaces/required/level-schedule.json",
+      "executable": false
+    },
+    {
+      "path": "interfaces/required/seating.json",
+      "executable": false
+    },
+    {
+      "path": "interfaces/tournament-state.schema.json",
+      "executable": false
+    },
+    {
+      "path": "interfaces/tournament.json",
+      "executable": false
+    },
+    {
+      "path": "migration.json",
+      "executable": false
+    },
+    {
+      "path": "suitability.json",
+      "executable": false
+    },
+    {
+      "path": "tests/android/Main.kt",
+      "executable": false
+    },
+    {
+      "path": "tests/apple/main.swift",
+      "executable": false
+    },
+    {
+      "path": "tests/fakes.ts",
+      "executable": false
+    },
+    {
+      "path": "tests/native.py",
+      "executable": false
+    },
+    {
+      "path": "tests/web.test.ts",
+      "executable": false
+    },
+    {
+      "path": "tools.lock.json",
+      "executable": false
+    },
+    {
+      "path": "visual/definition.json",
+      "executable": false
+    },
+    {
+      "path": "visual/examples/connected.json",
+      "executable": false
+    },
+    {
+      "path": "visual/output/connected.png",
+      "executable": false
+    },
+    {
+      "path": "visual/output/connected.svg",
+      "executable": false
+    },
+    {
+      "path": "visual/output/description.md",
+      "executable": false
+    }
+  ],
+  "artefacts": [
+    {
+      "source": "implementation/android/src/main/java/ae/tournament/ResultRows.kt",
+      "destination": "components/tournament/android/src/main/java/ae/tournament/ResultRows.kt",
+      "template": false,
+      "executable": false
+    },
+    {
+      "source": "implementation/apple/Sources/ResultRows.swift",
+      "destination": "components/tournament/apple/Sources/ResultRows.swift",
+      "template": false,
+      "executable": false
+    },
+    {
+      "source": "implementation/server/migrate.ts",
+      "destination": "components/tournament/server/migrate.ts",
+      "template": false,
+      "executable": false
+    },
+    {
+      "source": "implementation/server/tournament.ts",
+      "destination": "components/tournament/server/tournament.ts",
+      "template": false,
+      "executable": false
+    },
+    {
+      "source": "implementation/web/results.ts",
+      "destination": "components/tournament/web/results.ts",
+      "template": false,
+      "executable": false
+    }
+  ],
+  "dependencies": [],
+  "provides": [
+    {
+      "id": "tournament",
+      "type": "ae/tournament",
+      "version": "1.0.0",
+      "path": "interfaces/tournament.json"
+    }
+  ],
+  "requires": [
+    {
+      "id": "chip-ledger",
+      "type": "ae/chip-ledger",
+      "version": "1.0.0",
+      "path": "interfaces/required/chip-ledger.json"
+    },
+    {
+      "id": "level-schedule",
+      "type": "ae/level-schedule",
+      "version": "1.0.0",
+      "path": "interfaces/required/level-schedule.json"
+    },
+    {
+      "id": "seating",
+      "type": "ae/seating",
+      "version": "1.0.0",
+      "path": "interfaces/required/seating.json"
+    }
+  ],
+  "visual": {
+    "definition": "visual/definition.json",
+    "examples": [
+      "visual/examples/connected.json"
+    ],
+    "outputs": [
+      "visual/output/connected.svg",
+      "visual/output/connected.png"
+    ],
+    "descriptions": [
+      "visual/output/description.md"
+    ]
+  },
+  "capabilities": {
+    "hosts": [],
+    "secrets": [],
+    "writes": [
+      "components/tournament/android/src/main/java/ae/tournament/ResultRows.kt",
+      "components/tournament/apple/Sources/ResultRows.swift",
+      "components/tournament/server/migrate.ts",
+      "components/tournament/server/tournament.ts",
+      "components/tournament/web/results.ts"
+    ]
+  },
+  "infrastructure": {
+    "accounts": [],
+    "costStatus": "unmeasured",
+    "deployedReason": "No deployed service; injected resources and local library functions only."
+  },
+  "verification": [
+    {
+      "id": "web",
+      "root": "package",
+      "argv": [
+        "node",
+        "--test",
+        "tests/web.test.ts"
+      ],
+      "cwd": ".",
+      "prepare": [],
+      "tools": {
+        "node": "26.5.0"
+      },
+      "fixtures": [
+        "tests/fakes.ts",
+        "examples/consumer.ts"
+      ],
+      "locks": [
+        "tools.lock.json"
+      ],
+      "network": false,
+      "timeoutSeconds": 120,
+      "expectedExit": 0,
+      "scope": "required-local",
+      "requirements": []
+    },
+    {
+      "id": "apple",
+      "root": "package",
+      "argv": [
+        "python3",
+        "tests/native.py",
+        "apple"
+      ],
+      "cwd": ".",
+      "prepare": [],
+      "tools": {
+        "python3": "3.12.8",
+        "swiftc": "6.4.2"
+      },
+      "fixtures": [
+        "tests/apple/main.swift"
+      ],
+      "locks": [
+        "tools.lock.json"
+      ],
+      "network": false,
+      "timeoutSeconds": 120,
+      "expectedExit": 0,
+      "scope": "platform",
+      "requirements": []
+    },
+    {
+      "id": "android",
+      "root": "package",
+      "argv": [
+        "python3",
+        "tests/native.py",
+        "android"
+      ],
+      "cwd": ".",
+      "prepare": [],
+      "tools": {
+        "python3": "3.12.8",
+        "kotlinc": "2.2.0",
+        "java": "26.0.1"
+      },
+      "fixtures": [
+        "tests/android/Main.kt"
+      ],
+      "locks": [
+        "tools.lock.json"
+      ],
+      "network": false,
+      "timeoutSeconds": 120,
+      "expectedExit": 0,
+      "scope": "platform",
+      "requirements": []
+    }
+  ],
+  "upgrade": {
+    "policy": "patch",
+    "migration": "files-only"
+  }
+}

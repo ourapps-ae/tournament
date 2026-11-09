@@ -1,0 +1,98 @@
+{
+  "id": "ourapps-ae.tournament",
+  "name": "Tournament",
+  "kind": "component",
+  "status": "example",
+  "package": "ourapps-ae/tournament",
+  "version": "0.3.0",
+  "ports": [
+    {
+      "id": "chip-ledger",
+      "name": "Chip ledger",
+      "direction": "input",
+      "kind": "interface",
+      "type": "ae/chip-ledger",
+      "version": "1.0.0",
+      "required": true,
+      "cardinality": "one"
+    },
+    {
+      "id": "level-schedule",
+      "name": "Level schedule",
+      "direction": "input",
+      "kind": "interface",
+      "type": "ae/level-schedule",
+      "version": "1.0.0",
+      "required": true,
+      "cardinality": "one"
+    },
+    {
+      "id": "seating",
+      "name": "Seating",
+      "direction": "input",
+      "kind": "interface",
+      "type": "ae/seating",
+      "version": "1.0.0",
+      "required": true,
+      "cardinality": "one"
+    },
+    {
+      "id": "tournament",
+      "name": "Tournament",
+      "direction": "output",
+      "kind": "interface",
+      "type": "ae/tournament",
+      "version": "1.0.0"
+    }
+  ],
+  "settings": [
+    {
+      "id": "startingStack",
+      "name": "Startingstack",
+      "type": "number",
+      "required": false,
+      "secret": false,
+      "default": 5000
+    },
+    {
+      "id": "rebuysPerPlayer",
+      "name": "Rebuysperplayer",
+      "type": "number",
+      "required": false,
+      "secret": false,
+      "default": 1
+    },
+    {
+      "id": "rebuyStack",
+      "name": "Rebuystack",
+      "type": "number",
+      "required": false,
+      "secret": false,
+      "default": 5000
+    },
+    {
+      "id": "lastRebuyLevel",
+      "name": "Lastrebuylevel",
+      "type": "number",
+      "required": false,
+      "secret": false,
+      "default": 3
+    },
+    {
+      "id": "rebuyDecisionSeconds",
+      "name": "Rebuydecisionseconds",
+      "type": "number",
+      "required": false,
+      "secret": false,
+      "default": 30
+    },
+    {
+      "id": "tiebreak",
+      "name": "Tiebreak",
+      "type": "string",
+      "required": false,
+      "secret": false,
+      "default": "stackAtDeal"
+    }
+  ]
+}
