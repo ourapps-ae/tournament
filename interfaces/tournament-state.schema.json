@@ -1,41 +1,104 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ae/tournament-state",
+  "x-version": "1.0.0",
+  "description": "The state a tournament keeps (TournamentState of ae/tournament): entries, the chip ledger (opaque), open rebuy offers, pending bust-outs, the winner and whether it has finished.",
   "type": "object",
-  "required": ["entries", "ledger", "offers", "pendingBust", "winnerId", "finished"],
+  "required": [
+    "entries",
+    "ledger",
+    "offers",
+    "pendingBust",
+    "winnerId",
+    "finished"
+  ],
   "additionalProperties": false,
   "properties": {
     "entries": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "status", "place", "rebuysUsed", "startStack"],
+        "required": [
+          "id",
+          "status",
+          "place",
+          "rebuysUsed",
+          "startStack"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "minLength": 1 },
-          "status": { "enum": ["in", "out"] },
-          "place": { "type": ["integer", "null"], "minimum": 1 },
-          "rebuysUsed": { "type": "integer", "minimum": 0 },
-          "startStack": { "type": "integer", "minimum": 0 }
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "in",
+              "out"
+            ]
+          },
+          "place": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "rebuysUsed": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "startStack": {
+            "type": "integer",
+            "minimum": 0
+          }
         }
       }
     },
-    "ledger": { "description": "Opaque: the chip-ledger component's own state, stored as given." },
+    "ledger": {
+      "description": "Opaque: the chip-ledger component's own state, stored as given."
+    },
     "offers": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["playerId", "deadline", "autoAt"],
+        "required": [
+          "playerId",
+          "deadline",
+          "autoAt"
+        ],
         "additionalProperties": false,
         "properties": {
-          "playerId": { "type": "string" },
-          "deadline": { "type": "number", "description": "action-clock milliseconds" },
-          "autoAt": { "type": ["number", "null"] }
+          "playerId": {
+            "type": "string"
+          },
+          "deadline": {
+            "type": "number",
+            "description": "action-clock milliseconds"
+          },
+          "autoAt": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
         }
       }
     },
-    "pendingBust": { "type": "array", "items": { "type": "string" } },
-    "winnerId": { "type": ["string", "null"] },
-    "finished": { "type": "boolean" }
+    "pendingBust": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "winnerId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "finished": {
+      "type": "boolean"
+    }
   }
 }

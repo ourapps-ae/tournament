@@ -3,7 +3,7 @@
 ## For the agent
 Select `ourapps-ae/tournament` once per recipe. Map the chips, rebuys and decision-time questions to `startingStack`, `rebuysPerPlayer`/`rebuyStack`/`lastRebuyLevel` and `rebuyDecisionSeconds`. Connect `chip-ledger`, `level-schedule` and `seating` to those components, then connect the provided `tournament` to turn-engine. If the recipe has no rebuys, set `rebuysPerPlayer` to 0. Set `startingStack` and `rebuyStack` here only: the tournament issues every stack through the chip ledger, so chip-ledger's own `startingStack` must not also be set to a different number.
 
-- Select package `ourapps-ae/tournament` version `0.3.0`.
+- Select package `ourapps-ae/tournament` version `0.4.0`.
 - Settings to configure:
   - `startingStack` (integer; optional; default `5000`)
   - `rebuysPerPlayer` (integer; optional; default `1`)

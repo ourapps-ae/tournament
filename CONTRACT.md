@@ -25,15 +25,18 @@ Settings (all optional): `startingStack` (5000), `rebuysPerPlayer` (1), `rebuySt
 - `implementation/web/results.ts` -> `components/tournament/web/results.ts`
 
 Dependencies: none.
-`tools.lock.json` pins verification tools: node 26.5.0, python3 3.12.8, swiftc 6.4.2, kotlinc 2.2.0, java 26.0.1. Licence wording remains deferred.
+`tools.lock.json` pins verification tools: node 26.5.0, python3 3.12.8, swiftc 6.4.2, kotlinc 2.2.0, java 26.0.1. Licence: `Apache-2.0` (`LICENCE`, `NOTICE`).
 
 ## Provided interfaces
-- `interfaces/tournament.json` defines `tournament` (ae/tournament) version 1.0.0.
+- `interfaces/tournament.json` defines `tournament` (ae/tournament) version 1.0.0: an OpenRPC 1.3.2 document, one method per function (a member of a created object is `<Type>.<member>`), with parameter, result and data types as JSON Schema 2020-12 (`components.schemas`) and thrown errors under `errors`.
+- `interfaces/tournament-state.schema.json` (ae/tournament-state 1.0.0) is a JSON Schema 2020-12 document of the stored tournament state.
 
 ## Required interfaces
 - `chip-ledger` (ae/chip-ledger) version 1.0.0, supplied by the recipe or application.
 - `level-schedule` (ae/level-schedule) version 1.0.0, supplied by the recipe or application.
 - `seating` (ae/seating) version 1.0.0, supplied by the recipe or application.
+
+Each `interfaces/required-<id>.json` is a byte copy of the providing component's document.
 
 ## Integration
 Build it once with `createTournament(settings, {ledger, schedule, seating})` from `implementation/server/tournament.ts`, passing the chip-ledger, level-schedule and seating components. The state holds the chip ledger; the game moves chips through `ledger(t)` and the turn engine puts the new ledger back with `withLedger`. The turn engine calls `start`, `roundStarted`, `roundSettled`, `dueOffer`, `nextOfferDue`, `resolve`, `conclude`, `cancel`, `levelAt` and the readers. Clients use `resultRows` (web `implementation/web/results.ts`, Apple `ResultRows.swift`, Android `ResultRows.kt`); end screens, icons and text stay with the recipe. The ledger offers `create/issue/balance/issued/setSeats` (`start` tells it each player's seat number) and the schedule `levelAt/describe`; `createLedgerApi(settings)` of chip-ledger and `createScheduleApi(schedule)` of level-schedule are such objects. `levelAt` and `clockInfo` take the level clock of game-clock (`elapsed(clock, 'level')`). `levelClockRuns(t)` is false exactly while rebuy offers are open; the turn engine passes it as `runs.level` so the blind level does not advance during a rebuy decision.

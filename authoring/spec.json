@@ -1,6 +1,6 @@
 {
   "name": "tournament",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "title": "Tournament",
   "description": "Entries, rebuy offers, eliminations, finishing places, the winner and results of a tournament made of rounds, over an injected chip ledger, level schedule and seating.",
   "facilities": [
@@ -34,19 +34,19 @@
       "id": "chip-ledger",
       "type": "ae/chip-ledger",
       "version": "1.0.0",
-      "path": "interfaces/required/chip-ledger.json"
+      "path": "interfaces/required-chip-ledger.json"
     },
     {
       "id": "level-schedule",
       "type": "ae/level-schedule",
       "version": "1.0.0",
-      "path": "interfaces/required/level-schedule.json"
+      "path": "interfaces/required-level-schedule.json"
     },
     {
       "id": "seating",
       "type": "ae/seating",
       "version": "1.0.0",
-      "path": "interfaces/required/seating.json"
+      "path": "interfaces/required-seating.json"
     }
   ],
   "collect": [
