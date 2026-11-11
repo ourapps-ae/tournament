@@ -1,6 +1,6 @@
 # Source mapping
 
-Reference revision: `19905b75dbea89fbfd424d67fe26c81aaed0e018`. Extraction source: `OurPoker/recipe/` (read-only).
+Reference revision: `19905b75dbea89fbfd424d67fe26c81aaed0e018`. Extraction source: the `recipe/` folder of `ourapps-ae/OurPoker`; paths below are relative to it.
 
 - `implementation/server/tournament.ts` <- `server/src/engine.ts` and `server/src/rules.ts`:
   - Starting stacks: `start` 377-389 (`STARTING_STACK`, rules.ts 6): `start`, now issued through the injected chip ledger.

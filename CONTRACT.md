@@ -25,7 +25,7 @@ Settings (all optional): `startingStack` (5000), `rebuysPerPlayer` (1), `rebuySt
 - `implementation/web/results.ts` -> `components/tournament/web/results.ts`
 
 Dependencies: none.
-`tools.lock.json` pins verification tools: node 26.5.0, python3 3.12.8, swiftc 6.4.2, kotlinc 2.2.0, java 26.0.1. Licence: `Apache-2.0` (`LICENCE`, `NOTICE`).
+`tools.lock.json` pins verification tools: node 26.5, python3 3.12, swiftc 6.4, kotlinc 2.2, java 26.0. Licence: `Apache-2.0` (`LICENCE`, `NOTICE`).
 
 ## Provided interfaces
 - `interfaces/tournament.json` defines `tournament` (ae/tournament) version 1.0.0: an OpenRPC 1.3.2 document, one method per function (a member of a created object is `<Type>.<member>`), with parameter, result and data types as JSON Schema 2020-12 (`components.schemas`) and thrown errors under `errors`.
@@ -48,11 +48,11 @@ Build it once with `createTournament(settings, {ledger, schedule, seating})` fro
 No service is deployed. The tournament state is part of the game state the room stores. No accounts or keys.
 
 ## Verification
-`node --test tests/web.test.ts` checks settings, entries, offers with deadlines and computer acceptance, the level cut-off and rebuy limits, taken and declined rebuys, same-round and shared placing, successive places, computers-only completion, cancellation, chip conservation, result rows, the runnable consumer and export/import with checksums. `python3 tests/native.py apple` compiles and runs the Swift result-row checks. `python3 tests/native.py android` is written for Kotlin 2.2.0 but was not run on the extraction machine (no kotlinc). `authoring/integration.test.ts` (not packaged) runs the tournament over the real chip-ledger and level-schedule siblings. The tests use small stand-ins for the three required components (`tests/fakes.ts`).
+`node --test tests/web.test.ts` checks settings, entries, offers with deadlines and computer acceptance, the level cut-off and rebuy limits, taken and declined rebuys, same-round and shared placing, successive places, computers-only completion, cancellation, chip conservation, result rows, the runnable consumer and export/import with checksums. `python3 tests/native.py apple` compiles and runs the Swift result-row checks. `python3 tests/native.py android` is written for Kotlin 2.2 but was not run on the extraction machine (no kotlinc). `authoring/integration.test.ts` (not packaged) runs the tournament over the real chip-ledger and level-schedule siblings. The tests use small stand-ins for the three required components (`tests/fakes.ts`).
 
-- `node --test tests/web.test.ts` (web, required-local; tools: node 26.5.0)
-- `python3 tests/native.py apple` (apple, platform; tools: python3 3.12.8, swiftc 6.4.2)
-- `python3 tests/native.py android` (android, platform; tools: python3 3.12.8, kotlinc 2.2.0, java 26.0.1)
+- `node --test tests/web.test.ts` (web, required-local; tools: node 26.5)
+- `python3 tests/native.py apple` (apple, platform; tools: python3 3.12, swiftc 6.4)
+- `python3 tests/native.py android` (android, platform; tools: python3 3.12, kotlinc 2.2, java 26.0)
 
 ## Scenarios and presentation
 Three players start with 5000. One loses everything in a level 1 round, is offered the one rebuy and takes it; later loses again, has no rebuy left and is eliminated third. Two players bust in the same round with 300 and 100 at the deal: the 300 stack places higher. A person who does not answer a rebuy offer within the deadline is eliminated.
