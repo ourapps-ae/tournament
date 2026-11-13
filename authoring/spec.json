@@ -1,6 +1,6 @@
 {
   "name": "tournament",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "title": "Tournament",
   "description": "Entries, rebuy offers, eliminations, finishing places, the winner and results of a tournament made of rounds, over an injected chip ledger, level schedule and seating.",
   "facilities": [
