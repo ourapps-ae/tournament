@@ -13,6 +13,12 @@
       "template": false
     },
     {
+      "destination": "components/tournament/server/index.ts",
+      "executable": false,
+      "source": "implementation/server/index.ts",
+      "template": false
+    },
+    {
       "destination": "components/tournament/server/migrate.ts",
       "executable": false,
       "source": "implementation/server/migrate.ts",
@@ -22,6 +28,12 @@
       "destination": "components/tournament/server/tournament.ts",
       "executable": false,
       "source": "implementation/server/tournament.ts",
+      "template": false
+    },
+    {
+      "destination": "components/tournament/web/index.ts",
+      "executable": false,
+      "source": "implementation/web/index.ts",
       "template": false
     },
     {
@@ -37,8 +49,10 @@
     "writes": [
       "components/tournament/android/src/main/java/ae/tournament/ResultRows.kt",
       "components/tournament/apple/Sources/ResultRows.swift",
+      "components/tournament/server/index.ts",
       "components/tournament/server/migrate.ts",
       "components/tournament/server/tournament.ts",
+      "components/tournament/web/index.ts",
       "components/tournament/web/results.ts"
     ]
   },
@@ -162,11 +176,19 @@
     },
     {
       "executable": false,
+      "path": "implementation/server/index.ts"
+    },
+    {
+      "executable": false,
       "path": "implementation/server/migrate.ts"
     },
     {
       "executable": false,
       "path": "implementation/server/tournament.ts"
+    },
+    {
+      "executable": false,
+      "path": "implementation/web/index.ts"
     },
     {
       "executable": false,

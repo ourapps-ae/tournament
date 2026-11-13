@@ -100,5 +100,6 @@
     "finished": {
       "type": "boolean"
     }
-  }
+  },
+  "x-ourapps-modules": {}
 }
