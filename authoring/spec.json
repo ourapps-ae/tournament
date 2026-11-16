@@ -1,6 +1,6 @@
 {
   "name": "tournament",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "title": "Tournament",
   "description": "Entries, rebuy offers, eliminations, finishing places, the winner and results of a tournament made of rounds, over an injected chip ledger, level schedule and seating.",
   "facilities": [
@@ -157,10 +157,10 @@
     "java": "26.0.1"
   },
   "platforms": [
-    "server",
-    "web",
+    "android",
     "apple",
-    "android"
+    "server",
+    "web"
   ],
   "keepsData": true,
   "text": {
@@ -191,5 +191,183 @@
       }
     ],
     "notes": "Pure library; the tournament state is part of the room's own stored state, a few kilobytes."
+  },
+  "classes": [
+    {
+      "reference": {
+        "name": "ourapps-ae/tournament-class",
+        "version": "1.0.0",
+        "digest": "4c486dd48a8147b8b18a97f35c57aba2d87bdb7c36651af505edca7f32d1a177"
+      },
+      "descriptor": {
+        "format": 1,
+        "name": "ourapps-ae/tournament-class",
+        "version": "1.0.0",
+        "provides": [
+          {
+            "type": "ae/tournament",
+            "version": "1.0.0",
+            "path": "classes/tournament-class/tournament.json",
+            "modules": {
+              "web": [
+                "web/index.ts"
+              ],
+              "server": [
+                "server/index.ts"
+              ],
+              "android": [
+                "android/src/main/java"
+              ],
+              "ios": [
+                "apple/Sources"
+              ],
+              "macos": [
+                "apple/Sources"
+              ],
+              "tvos": [
+                "apple/Sources"
+              ],
+              "windows": [
+                "web/index.ts"
+              ]
+            }
+          }
+        ],
+        "requires": [
+          {
+            "type": "ae/chip-ledger",
+            "version": "1.0.0"
+          },
+          {
+            "type": "ae/level-schedule",
+            "version": "1.0.0"
+          },
+          {
+            "type": "ae/seating",
+            "version": "1.0.0"
+          }
+        ],
+        "settings": {
+          "type": "object",
+          "properties": {
+            "rebuyStack": {
+              "type": "integer"
+            },
+            "rebuysPerPlayer": {
+              "type": "integer"
+            },
+            "startingStack": {
+              "type": "integer"
+            },
+            "tiebreak": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$"
+            }
+          },
+          "required": [
+            "rebuyStack",
+            "rebuysPerPlayer",
+            "startingStack",
+            "tiebreak"
+          ],
+          "additionalProperties": false
+        },
+        "inventory": [
+          {
+            "path": "classes/tournament-class/check.mjs",
+            "digest": "3a146da57de44897a2e5ef71fabbe713f80f4f92de59b857104fa216d7f84e94"
+          },
+          {
+            "path": "classes/tournament-class/runtime.mjs",
+            "digest": "7440f3891614c423f74668cb5a2445fea58bbfa4d7c740c8e8a855d1d9300d43"
+          },
+          {
+            "path": "classes/tournament-class/tournament.json",
+            "digest": "45bd348f3007ffa729a951d9981e20fbcd3dfe2959c41874dc7fb54b6ab857ec"
+          }
+        ],
+        "verification": [
+          {
+            "id": "shared",
+            "root": "package",
+            "argv": [
+              "node",
+              "classes/tournament-class/check.mjs"
+            ],
+            "cwd": ".",
+            "prepare": [],
+            "tools": {
+              "node": "26.5"
+            },
+            "fixtures": [
+              "classes/tournament-class/check.mjs"
+            ],
+            "locks": [],
+            "network": false,
+            "timeoutSeconds": 60,
+            "expectedExit": 0,
+            "scope": "required-local",
+            "requirements": []
+          }
+        ]
+      }
+    }
+  ],
+  "implements": [
+    {
+      "name": "ourapps-ae/tournament-class",
+      "version": "1.0.0",
+      "digest": "4c486dd48a8147b8b18a97f35c57aba2d87bdb7c36651af505edca7f32d1a177"
+    }
+  ],
+  "upstream": [],
+  "compatibility": {
+    "runtimes": {
+      "node": ">=26.5.0 <27.0.0",
+      "swift": "=6.4.2",
+      "ios": ">=17.0.0",
+      "macos": ">=14.0.0",
+      "tvos": ">=17.0.0",
+      "kotlin": "=2.3.20",
+      "java": ">=17.0.0 <27.0.0",
+      "android": ">=8.0.0"
+    },
+    "frameworks": {},
+    "dependencies": [],
+    "styles": {
+      "scope": "none",
+      "namespaces": [],
+      "conflicts": []
+    }
+  },
+  "maintenance": {
+    "owners": [
+      "Level N Ltd"
+    ],
+    "contact": "https://github.com/ourapps-ae/tournament/issues",
+    "repository": "https://github.com/ourapps-ae/tournament",
+    "updates": {
+      "source": "https://github.com/ourapps-ae/tournament/releases",
+      "strategy": "manual"
+    }
+  },
+  "supportedPlatforms": [
+    "android",
+    "ios",
+    "macos",
+    "server",
+    "tvos",
+    "web",
+    "windows"
+  ],
+  "licence": "Apache-2.0",
+  "licenceFile": "LICENCE",
+  "noticeFile": "NOTICE",
+  "templates": [],
+  "modules": {
+    "web": "web/index.ts",
+    "server": "server/index.ts",
+    "android": "android/src/main/java",
+    "apple": "apple/Sources"
   }
 }
