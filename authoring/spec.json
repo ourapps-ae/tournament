@@ -1,6 +1,6 @@
 {
   "name": "tournament",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "title": "Tournament",
   "description": "Entries, rebuy offers, eliminations, finishing places, the winner and results of a tournament made of rounds, over an injected chip ledger, level schedule and seating.",
   "facilities": [
@@ -196,13 +196,17 @@
     {
       "reference": {
         "name": "ourapps-ae/tournament-class",
-        "version": "1.0.0",
-        "digest": "4c486dd48a8147b8b18a97f35c57aba2d87bdb7c36651af505edca7f32d1a177"
+        "version": "1.1.0",
+        "digest": "b77ed2f7d27e69bdd7f7b3092e57731ad7a52b4e1d7c6dfa2588b8b1fe713266"
       },
       "descriptor": {
-        "format": 1,
+        "format": 2,
         "name": "ourapps-ae/tournament-class",
-        "version": "1.0.0",
+        "version": "1.1.0",
+        "title": "Tournament",
+        "summary": "Entries, rebuys, eliminations, places and the result screen",
+        "category": "games/tournaments",
+        "presentation": "none",
         "provides": [
           {
             "type": "ae/tournament",
@@ -316,8 +320,8 @@
   "implements": [
     {
       "name": "ourapps-ae/tournament-class",
-      "version": "1.0.0",
-      "digest": "4c486dd48a8147b8b18a97f35c57aba2d87bdb7c36651af505edca7f32d1a177"
+      "version": "1.1.0",
+      "digest": "b77ed2f7d27e69bdd7f7b3092e57731ad7a52b4e1d7c6dfa2588b8b1fe713266"
     }
   ],
   "upstream": [],
@@ -328,7 +332,7 @@
       "ios": ">=17.0.0",
       "macos": ">=14.0.0",
       "tvos": ">=17.0.0",
-      "kotlin": "=2.3.20",
+      "kotlin": "=2.4.21",
       "java": ">=17.0.0 <27.0.0",
       "android": ">=8.0.0"
     },
@@ -603,5 +607,11 @@
         "manual": "Without the package manager, install Node 26 from nodejs.org (the installer, or the zip or tar archive with its folder put first on PATH); on Linux also from the NodeSource repository."
       }
     ]
-  }
+  },
+  "release": {
+    "channel": "features",
+    "fixes": []
+  },
+  "images": [],
+  "vulnerabilityWaivers": []
 }
