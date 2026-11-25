@@ -115,7 +115,7 @@
           "$ref": "#/components/schemas/TournamentSettings"
         }
       },
-      "x-ourapps-property": true,
+      "x-clodhub-property": true,
       "tags": [
         {
           "name": "server"
@@ -1459,7 +1459,7 @@
           "issued",
           "setSeats"
         ],
-        "x-ourapps-interface": "ae/chip-ledger"
+        "x-clodhub-interface": "ae/chip-ledger"
       },
       "Schedule": {
         "type": "object",
@@ -1476,7 +1476,7 @@
           "levelAt",
           "describe"
         ],
-        "x-ourapps-interface": "ae/level-schedule"
+        "x-clodhub-interface": "ae/level-schedule"
       },
       "Seats": {
         "type": "object",
@@ -1497,7 +1497,7 @@
           "find",
           "people"
         ],
-        "x-ourapps-interface": "ae/seating"
+        "x-clodhub-interface": "ae/seating"
       },
       "Tournament": {
         "type": "object",
@@ -1655,7 +1655,7 @@
       }
     }
   },
-  "x-ourapps-modules": {
+  "x-clodhub-modules": {
     "web": "web/index.ts",
     "server": "server/index.ts",
     "android": "android/src/main/java",

@@ -14,4 +14,4 @@ Stylesheet namespaces name the actual selector and property separated by `::`, p
 
 Windows browser modules run inside the Electron host. Apple modules target iOS, television and Mac Catalyst where declared. Runtime execution coverage is recorded in signed review evidence.
 
-Maintainer: Level N Ltd. Contact: https://github.com/ourapps-ae/tournament/issues.
+Maintainer: Level N Ltd. Contact: https://github.com/clodhub/tournament/issues.

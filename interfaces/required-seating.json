@@ -132,7 +132,7 @@
           "$ref": "#/components/schemas/SeatingSettings"
         }
       },
-      "x-ourapps-property": true,
+      "x-clodhub-property": true,
       "tags": [
         {
           "name": "server"
@@ -1377,7 +1377,7 @@
         "required": [
           "validName"
         ],
-        "x-ourapps-interface": "ae/guest-identity"
+        "x-clodhub-interface": "ae/guest-identity"
       },
       "Seating": {
         "type": "object",
@@ -1505,7 +1505,7 @@
       }
     }
   },
-  "x-ourapps-modules": {
+  "x-clodhub-modules": {
     "web": "web/index.ts",
     "server": "server/index.ts",
     "android": "android/src/main/java",

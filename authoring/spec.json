@@ -1,6 +1,6 @@
 {
   "name": "tournament",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "title": "Tournament",
   "description": "Entries, rebuy offers, eliminations, finishing places, the winner and results of a tournament made of rounds, over an injected chip ledger, level schedule and seating.",
   "facilities": [
@@ -108,7 +108,7 @@
         "tests/web.test.ts"
       ],
       "tools": {
-        "node": "26.5.0"
+        "node": "26.5"
       },
       "fixtures": [
         "tests/fakes.ts",
@@ -123,8 +123,8 @@
         "apple"
       ],
       "tools": {
-        "python3": "3.12.8",
-        "swiftc": "6.4.2"
+        "python3": "3.12",
+        "swiftc": "6.4"
       },
       "fixtures": [
         "tests/apple/main.swift"
@@ -139,9 +139,9 @@
         "android"
       ],
       "tools": {
-        "python3": "3.12.8",
-        "kotlinc": "2.2.0",
-        "java": "26.0.1"
+        "java": "26.0",
+        "kotlinc": "2.2",
+        "python3": "3.12"
       },
       "fixtures": [
         "tests/android/Main.kt"
@@ -150,11 +150,11 @@
     }
   ],
   "tools": {
-    "node": "26.5.0",
-    "python3": "3.12.8",
-    "swiftc": "6.4.2",
-    "kotlinc": "2.2.0",
-    "java": "26.0.1"
+    "node": "26.5",
+    "python3": "3.12",
+    "swiftc": "6.4",
+    "kotlinc": "2.2",
+    "java": "26.0"
   },
   "platforms": [
     "android",
@@ -172,7 +172,7 @@
     "scenarios": "Three players start with 5000. One loses everything in a level 1 round, is offered the one rebuy and takes it; later loses again, has no rebuy left and is eliminated third. Two players bust in the same round with 300 and 100 at the deal: the 300 stack places higher. A person who does not answer a rebuy offer within the deadline is eliminated.",
     "updates": "Patch updates replace files; the state shape is `interfaces/tournament-state.schema.json` version 1.0.0 and `migration.json` describes export and import as newline-delimited JSON with a checksum per record. Removal deletes the owned sources and the application's imports; stored results stay in the room's own storage."
   },
-  "agentInstructions": "Select `ourapps-ae/tournament` once per recipe. Map the chips, rebuys and decision-time questions to `startingStack`, `rebuysPerPlayer`/`rebuyStack`/`lastRebuyLevel` and `rebuyDecisionSeconds`. Connect `chip-ledger`, `level-schedule` and `seating` to those components, then connect the provided `tournament` to turn-engine. If the recipe has no rebuys, set `rebuysPerPlayer` to 0. Set `startingStack` and `rebuyStack` here only: the tournament issues every stack through the chip ledger, so chip-ledger's own `startingStack` must not also be set to a different number.",
+  "agentInstructions": "Select `clodhub/tournament` once per recipe. Map the chips, rebuys and decision-time questions to `startingStack`, `rebuysPerPlayer`/`rebuyStack`/`lastRebuyLevel` and `rebuyDecisionSeconds`. Connect `chip-ledger`, `level-schedule` and `seating` to those components, then connect the provided `tournament` to turn-engine. If the recipe has no rebuys, set `rebuysPerPlayer` to 0. Set `startingStack` and `rebuyStack` here only: the tournament issues every stack through the chip ledger, so chip-ledger's own `startingStack` must not also be set to a different number.",
   "developerInstructions": "Nothing to supply: no accounts or keys. The starting stack must equal the chips the game expects to deal with; keep `startingStack` and `rebuyStack` in one place (the house-rules file) and read both into the settings. Use `resultRows` in your end screen and keep the text, icons and cards in your own files. To check it works, run the commands below. Pass chip-ledger's `createLedgerApi(settings)` and level-schedule's `createScheduleApi(schedule)`. Give the level schedule the level clock: `tournament.levelAt(clock.elapsed(clock, 'level'))`.",
   "suitability": {
     "format": 1,
@@ -195,13 +195,13 @@
   "classes": [
     {
       "reference": {
-        "name": "ourapps-ae/tournament-class",
+        "name": "clodhub/tournament-class",
         "version": "1.1.0",
-        "digest": "b77ed2f7d27e69bdd7f7b3092e57731ad7a52b4e1d7c6dfa2588b8b1fe713266"
+        "digest": "83c760bd0415b41d5db0d55d79ec8d93ac7c55b8ce6e679902b003597095a464"
       },
       "descriptor": {
         "format": 2,
-        "name": "ourapps-ae/tournament-class",
+        "name": "clodhub/tournament-class",
         "version": "1.1.0",
         "title": "Tournament",
         "summary": "Entries, rebuys, eliminations, places and the result screen",
@@ -287,7 +287,7 @@
           },
           {
             "path": "classes/tournament-class/tournament.json",
-            "digest": "45bd348f3007ffa729a951d9981e20fbcd3dfe2959c41874dc7fb54b6ab857ec"
+            "digest": "3d36d41e5f9d83a92e1785e00dc963ed2239dd0979bbd6577e02def9081ce206"
           }
         ],
         "verification": [
@@ -319,9 +319,9 @@
   ],
   "implements": [
     {
-      "name": "ourapps-ae/tournament-class",
+      "name": "clodhub/tournament-class",
       "version": "1.1.0",
-      "digest": "b77ed2f7d27e69bdd7f7b3092e57731ad7a52b4e1d7c6dfa2588b8b1fe713266"
+      "digest": "83c760bd0415b41d5db0d55d79ec8d93ac7c55b8ce6e679902b003597095a464"
     }
   ],
   "upstream": [],
@@ -348,10 +348,10 @@
     "owners": [
       "Level N Ltd"
     ],
-    "contact": "https://github.com/ourapps-ae/tournament/issues",
-    "repository": "https://github.com/ourapps-ae/tournament",
+    "contact": "https://github.com/clodhub/tournament/issues",
+    "repository": "https://github.com/clodhub/tournament",
     "updates": {
-      "source": "https://github.com/ourapps-ae/tournament/releases",
+      "source": "https://github.com/clodhub/tournament/releases",
       "strategy": "manual"
     }
   },

@@ -387,7 +387,7 @@
           "$ref": "#/components/schemas/Schedule"
         }
       },
-      "x-ourapps-property": true,
+      "x-clodhub-property": true,
       "tags": [
         {
           "name": "typescript"
@@ -908,7 +908,7 @@
       }
     }
   },
-  "x-ourapps-modules": {
+  "x-clodhub-modules": {
     "server": "server/index.ts"
   }
 }

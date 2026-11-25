@@ -1,9 +1,9 @@
 # Tournament instructions
 
 ## For the agent
-Select `ourapps-ae/tournament` once per recipe. Map the chips, rebuys and decision-time questions to `startingStack`, `rebuysPerPlayer`/`rebuyStack`/`lastRebuyLevel` and `rebuyDecisionSeconds`. Connect `chip-ledger`, `level-schedule` and `seating` to those components, then connect the provided `tournament` to turn-engine. If the recipe has no rebuys, set `rebuysPerPlayer` to 0. Set `startingStack` and `rebuyStack` here only: the tournament issues every stack through the chip ledger, so chip-ledger's own `startingStack` must not also be set to a different number.
+Select `clodhub/tournament` once per recipe. Map the chips, rebuys and decision-time questions to `startingStack`, `rebuysPerPlayer`/`rebuyStack`/`lastRebuyLevel` and `rebuyDecisionSeconds`. Connect `chip-ledger`, `level-schedule` and `seating` to those components, then connect the provided `tournament` to turn-engine. If the recipe has no rebuys, set `rebuysPerPlayer` to 0. Set `startingStack` and `rebuyStack` here only: the tournament issues every stack through the chip ledger, so chip-ledger's own `startingStack` must not also be set to a different number.
 
-- Select package `ourapps-ae/tournament` version `0.9.0`.
+- Select package `clodhub/tournament` version `0.10.0`.
 - Settings to configure:
   - `startingStack` (integer; optional; default `5000`)
   - `rebuysPerPlayer` (integer; optional; default `1`)
@@ -26,4 +26,4 @@ From the component directory:
 - `node --test tests/web.test.ts` (web, required-local; tools: node 26.5)
 - `python3 tests/native.py apple` (apple, platform; tools: python3 3.12, swiftc 6.4)
 - `python3 tests/native.py android` (android, platform; tools: python3 3.12, kotlinc 2.2, java 26.0)
-- `python3 -m aepm review <digest> --store STORE --policy POLICY --trusted --allow-network` checks an archive fetched with `python3 -m aepm fetch ourapps-ae/tournament@VERSION --store STORE --from https://ourapps.app` and runs its suites.
+- `python3 -m aepm review <digest> --store STORE --policy POLICY --trusted --allow-network` checks an archive fetched with `python3 -m aepm fetch clodhub/tournament@VERSION --store STORE --from https://clodhub.com` and runs its suites.
