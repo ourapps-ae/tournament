@@ -1,4 +1,4 @@
-package ae.tournament
+package com.clodhub.tournament
 
 // Rows of the final standings; text stays with the application.
 data class ResultPlayer(val id: String, val name: String, val place: Int?, val isBot: Boolean, val rebuysUsed: Int, val stack: Int)

@@ -1,9 +1,9 @@
 {
   "openrpc": "1.3.2",
   "info": {
-    "title": "ae/seating",
+    "title": "com.clodhub/seating",
     "version": "1.0.0",
-    "description": "Seats for a table of people and computer players. Build the component once with createSeating(settings, identity); methods named `Seating.<name>` are members of the object it returns. Every member takes a state and returns a new one, never changing its input. Server: TypeScript `implementation/server/seating.ts` and `implementation/server/migrate.ts` (exportAll, importAll). Client lobby rows: TypeScript `implementation/web/lobby.ts`, Swift `implementation/apple/Sources/SeatRows.swift`, Kotlin `ae.seating` `SeatRows.kt` (seatRows, canTakeSeat; Swift and Kotlin take the same values as structs and enums)."
+    "description": "Seats for a table of people and computer players. Build the component once with createSeating(settings, identity); methods named `Seating.<name>` are members of the object it returns. Every member takes a state and returns a new one, never changing its input. Server: TypeScript `implementation/server/seating.ts` and `implementation/server/migrate.ts` (exportAll, importAll). Client lobby rows: TypeScript `implementation/web/lobby.ts`, Swift `implementation/apple/Sources/SeatRows.swift`, Kotlin `com.clodhub.seating` `SeatRows.kt` (seatRows, canTakeSeat; Swift and Kotlin take the same values as structs and enums)."
   },
   "methods": [
     {
@@ -1007,7 +1007,7 @@
     },
     {
       "name": "exportAll",
-      "description": "Newline-delimited JSON: one line per seat, one for the host, one per person who left a running game; each line carries a sha256 of its content (records: ae/seating-state document).",
+      "description": "Newline-delimited JSON: one line per seat, one for the host, one per person who left a running game; each line carries a sha256 of its content (records: com.clodhub/seating-state document).",
       "paramStructure": "by-position",
       "params": [
         {
@@ -1377,7 +1377,7 @@
         "required": [
           "validName"
         ],
-        "x-clodhub-interface": "ae/guest-identity"
+        "x-clodhub-interface": "com.clodhub/guest-identity"
       },
       "Seating": {
         "type": "object",

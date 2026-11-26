@@ -1,6 +1,7 @@
 {
   "name": "tournament",
-  "version": "0.10.0",
+  "version": "0.11.0",
+  "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
   "title": "Tournament",
   "description": "Entries, rebuy offers, eliminations, finishing places, the winner and results of a tournament made of rounds, over an injected chip ledger, level schedule and seating.",
   "facilities": [
@@ -24,7 +25,7 @@
   "provides": [
     {
       "id": "tournament",
-      "type": "ae/tournament",
+      "type": "com.clodhub/tournament",
       "version": "1.0.0",
       "path": "interfaces/tournament.json"
     }
@@ -32,19 +33,19 @@
   "requires": [
     {
       "id": "chip-ledger",
-      "type": "ae/chip-ledger",
+      "type": "com.clodhub/chip-ledger",
       "version": "1.0.0",
       "path": "interfaces/required-chip-ledger.json"
     },
     {
       "id": "level-schedule",
-      "type": "ae/level-schedule",
+      "type": "com.clodhub/level-schedule",
       "version": "1.0.0",
       "path": "interfaces/required-level-schedule.json"
     },
     {
       "id": "seating",
-      "type": "ae/seating",
+      "type": "com.clodhub/seating",
       "version": "1.0.0",
       "path": "interfaces/required-seating.json"
     }
@@ -172,7 +173,7 @@
     "scenarios": "Three players start with 5000. One loses everything in a level 1 round, is offered the one rebuy and takes it; later loses again, has no rebuy left and is eliminated third. Two players bust in the same round with 300 and 100 at the deal: the 300 stack places higher. A person who does not answer a rebuy offer within the deadline is eliminated.",
     "updates": "Patch updates replace files; the state shape is `interfaces/tournament-state.schema.json` version 1.0.0 and `migration.json` describes export and import as newline-delimited JSON with a checksum per record. Removal deletes the owned sources and the application's imports; stored results stay in the room's own storage."
   },
-  "agentInstructions": "Select `clodhub/tournament` once per recipe. Map the chips, rebuys and decision-time questions to `startingStack`, `rebuysPerPlayer`/`rebuyStack`/`lastRebuyLevel` and `rebuyDecisionSeconds`. Connect `chip-ledger`, `level-schedule` and `seating` to those components, then connect the provided `tournament` to turn-engine. If the recipe has no rebuys, set `rebuysPerPlayer` to 0. Set `startingStack` and `rebuyStack` here only: the tournament issues every stack through the chip ledger, so chip-ledger's own `startingStack` must not also be set to a different number.",
+  "agentInstructions": "Select `pkg:clod/com.clodhub/tournament` once per recipe. Map the chips, rebuys and decision-time questions to `startingStack`, `rebuysPerPlayer`/`rebuyStack`/`lastRebuyLevel` and `rebuyDecisionSeconds`. Connect `chip-ledger`, `level-schedule` and `seating` to those components, then connect the provided `tournament` to turn-engine. If the recipe has no rebuys, set `rebuysPerPlayer` to 0. Set `startingStack` and `rebuyStack` here only: the tournament issues every stack through the chip ledger, so chip-ledger's own `startingStack` must not also be set to a different number.",
   "developerInstructions": "Nothing to supply: no accounts or keys. The starting stack must equal the chips the game expects to deal with; keep `startingStack` and `rebuyStack` in one place (the house-rules file) and read both into the settings. Use `resultRows` in your end screen and keep the text, icons and cards in your own files. To check it works, run the commands below. Pass chip-ledger's `createLedgerApi(settings)` and level-schedule's `createScheduleApi(schedule)`. Give the level schedule the level clock: `tournament.levelAt(clock.elapsed(clock, 'level'))`.",
   "suitability": {
     "format": 1,
@@ -195,13 +196,13 @@
   "classes": [
     {
       "reference": {
-        "name": "clodhub/tournament-class",
+        "name": "pkg:clod/com.clodhub/tournament-class",
         "version": "1.1.0",
-        "digest": "83c760bd0415b41d5db0d55d79ec8d93ac7c55b8ce6e679902b003597095a464"
+        "digest": "69633676ac28ef4cebef5230f8d7fbc31fc9dd27f513972724cff39ca57e1649"
       },
       "descriptor": {
-        "format": 2,
-        "name": "clodhub/tournament-class",
+        "format": 3,
+        "name": "pkg:clod/com.clodhub/tournament-class",
         "version": "1.1.0",
         "title": "Tournament",
         "summary": "Entries, rebuys, eliminations, places and the result screen",
@@ -209,7 +210,7 @@
         "presentation": "none",
         "provides": [
           {
-            "type": "ae/tournament",
+            "type": "com.clodhub/tournament",
             "version": "1.0.0",
             "path": "classes/tournament-class/tournament.json",
             "modules": {
@@ -239,15 +240,15 @@
         ],
         "requires": [
           {
-            "type": "ae/chip-ledger",
+            "type": "com.clodhub/chip-ledger",
             "version": "1.0.0"
           },
           {
-            "type": "ae/level-schedule",
+            "type": "com.clodhub/level-schedule",
             "version": "1.0.0"
           },
           {
-            "type": "ae/seating",
+            "type": "com.clodhub/seating",
             "version": "1.0.0"
           }
         ],
@@ -283,11 +284,11 @@
           },
           {
             "path": "classes/tournament-class/runtime.mjs",
-            "digest": "7440f3891614c423f74668cb5a2445fea58bbfa4d7c740c8e8a855d1d9300d43"
+            "digest": "1d85f0dae92d5c6c859cd48a4211a933718ae3e168554a2b00806183c4b661f0"
           },
           {
             "path": "classes/tournament-class/tournament.json",
-            "digest": "3d36d41e5f9d83a92e1785e00dc963ed2239dd0979bbd6577e02def9081ce206"
+            "digest": "2c3c7c408b9125329420c748c838f31bc2c65791b16477d2f88f50b62e7d3b2f"
           }
         ],
         "verification": [
@@ -319,9 +320,9 @@
   ],
   "implements": [
     {
-      "name": "clodhub/tournament-class",
+      "name": "pkg:clod/com.clodhub/tournament-class",
       "version": "1.1.0",
-      "digest": "83c760bd0415b41d5db0d55d79ec8d93ac7c55b8ce6e679902b003597095a464"
+      "digest": "69633676ac28ef4cebef5230f8d7fbc31fc9dd27f513972724cff39ca57e1649"
     }
   ],
   "upstream": [],

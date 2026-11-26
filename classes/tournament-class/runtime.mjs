@@ -11,12 +11,12 @@ registerHooks({ load(url, context, next) {
 } });
 
 export { assert };
-export const manifest = JSON.parse(readFileSync(process.env.AEPM_CANDIDATE_MANIFEST, 'utf8'));
-const root = realpathSync(process.env.AEPM_CANDIDATE_ROOT);
-const modules = JSON.parse(process.env.AEPM_MODULE_MAP);
-assert.match(process.env.AEPM_CANDIDATE_DIGEST, /^[a-f0-9]{64}$/);
-assert.match(process.env.AEPM_CLASS_DIGEST, /^[a-f0-9]{64}$/);
-const prefix = `components/${manifest.identity.name.split('/')[1]}/`;
+export const manifest = JSON.parse(readFileSync(process.env.CLOD_CANDIDATE_MANIFEST, 'utf8'));
+const root = realpathSync(process.env.CLOD_CANDIDATE_ROOT);
+const modules = JSON.parse(process.env.CLOD_MODULE_MAP);
+assert.match(process.env.CLOD_CANDIDATE_DIGEST, /^[a-f0-9]{64}$/);
+assert.match(process.env.CLOD_CLASS_DIGEST, /^[a-f0-9]{64}$/);
+const prefix = `components/${manifest.identity.name.slice(manifest.identity.name.lastIndexOf('/') + 1)}/`;
 export function source(path) {
   const candidate = modules[prefix + path];
   assert.equal(typeof candidate, 'string', `missing installed module ${path}`);

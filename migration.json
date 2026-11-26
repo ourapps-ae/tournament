@@ -1,7 +1,7 @@
 {
   "format": 1,
   "stores": [
-    { "id": "tournament-results", "schema": { "name": "ae/tournament-state", "version": "1.0.0", "file": "interfaces/tournament-state.schema.json" } }
+    { "id": "tournament-results", "schema": { "name": "com.clodhub/tournament-state", "version": "1.0.0", "file": "interfaces/tournament-state.schema.json" } }
   ],
   "export": [
     { "format": "ndjson", "portable": true, "operation": "exportAll", "description": "One line per entry (place, rebuys used, stack at the last deal), per open rebuy offer and per pending bust-out, one summary line (winner, finished) and one opaque ledger line; each line carries a sha256 of its content." }

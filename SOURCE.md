@@ -16,5 +16,5 @@ Reference revision: `19905b75dbea89fbfd424d67fe26c81aaed0e018`. Extraction sourc
 - `implementation/server/migrate.ts` <- new (`generated-platform`): ndjson export and import with a sha256 per record.
 - `implementation/web/results.ts` <- `web/src/screens.ts` 195-225 (`endScreen`: ranked by place then unplaced with stack, "rebought" mark, cancelled heading): `resultRows`, `headingKey`. Screen building, cards, icons and text left in the recipe.
 - `implementation/apple/Sources/ResultRows.swift` <- `ios/OurPoker/Sources/EndScreen.swift` 10-11 and 32-46 (same rows; stable ordering made explicit).
-- `implementation/android/src/main/java/ae/tournament/ResultRows.kt` <- `android/.../ui/EndScreen.kt` 38-39 and 54-66. Not compiled here (no kotlinc).
+- `implementation/android/src/main/java/com/clodhub/tournament/ResultRows.kt` <- `android/.../ui/EndScreen.kt` 38-39 and 54-66. Not compiled here (no kotlinc).
 - `interfaces/tournament-state.schema.json`, `migration.json`, `examples/consumer.ts`, `tests/fakes.ts` and tests: new.

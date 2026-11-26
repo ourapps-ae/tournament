@@ -1,6 +1,6 @@
-import ae.tournament.ResultPlayer
-import ae.tournament.headingKey
-import ae.tournament.resultRows
+import com.clodhub.tournament.ResultPlayer
+import com.clodhub.tournament.headingKey
+import com.clodhub.tournament.resultRows
 
 fun main() {
     val players = listOf(

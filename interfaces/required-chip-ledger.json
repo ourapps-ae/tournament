@@ -1,7 +1,7 @@
 {
   "openrpc": "1.3.2",
   "info": {
-    "title": "ae/chip-ledger",
+    "title": "com.clodhub/chip-ledger",
     "version": "1.0.0",
     "description": "Whole-number chip accounting: stacks, bets, pots and side pots, odd chips. No game rules and no card knowledge: callers say who won each pot. Every function returns a new ledger and never changes its input. TypeScript, `implementation/server/ledger.ts`. Methods named `LedgerApi.<name>` are members of the object createLedgerApi returns (the operations a tournament calls, with the settings bound)."
   },
@@ -1338,7 +1338,7 @@
     },
     {
       "name": "exportLedger",
-      "description": "Newline-delimited JSON: the settings and issued total first, then one line per stake; each line carries the SHA-256 of its record (records: ae/chip-ledger-records document).",
+      "description": "Newline-delimited JSON: the settings and issued total first, then one line per stake; each line carries the SHA-256 of its record (records: com.clodhub/chip-ledger-records document).",
       "paramStructure": "by-position",
       "params": [
         {

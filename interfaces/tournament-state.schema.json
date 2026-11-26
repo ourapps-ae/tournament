@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "ae/tournament-state",
+  "title": "com.clodhub/tournament-state",
   "x-version": "1.0.0",
-  "description": "The state a tournament keeps (TournamentState of ae/tournament): entries, the chip ledger (opaque), open rebuy offers, pending bust-outs, the winner and whether it has finished.",
+  "description": "The state a tournament keeps (TournamentState of com.clodhub/tournament): entries, the chip ledger (opaque), open rebuy offers, pending bust-outs, the winner and whether it has finished.",
   "type": "object",
   "required": [
     "entries",

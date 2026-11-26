@@ -18,7 +18,7 @@ Settings (all optional): `startingStack` (5000), `rebuysPerPlayer` (1), `rebuySt
 ## Artefacts and dependencies
 `component.json` maps every `implementation/` source into `components/tournament/`:
 
-- `implementation/android/src/main/java/ae/tournament/ResultRows.kt` -> `components/tournament/android/src/main/java/ae/tournament/ResultRows.kt`
+- `implementation/android/src/main/java/com/clodhub/tournament/ResultRows.kt` -> `components/tournament/android/src/main/java/com/clodhub/tournament/ResultRows.kt`
 - `implementation/apple/Sources/ResultRows.swift` -> `components/tournament/apple/Sources/ResultRows.swift`
 - `implementation/server/migrate.ts` -> `components/tournament/server/migrate.ts`
 - `implementation/server/tournament.ts` -> `components/tournament/server/tournament.ts`
@@ -28,13 +28,13 @@ Dependencies: none.
 `tools.lock.json` pins verification tools: node 26.5, python3 3.12, swiftc 6.4, kotlinc 2.2, java 26.0. Licence: `Apache-2.0` (`LICENCE`, `NOTICE`).
 
 ## Provided interfaces
-- `interfaces/tournament.json` defines `tournament` (ae/tournament) version 1.0.0: an OpenRPC 1.3.2 document, one method per function (a member of a created object is `<Type>.<member>`), with parameter, result and data types as JSON Schema 2020-12 (`components.schemas`) and thrown errors under `errors`.
-- `interfaces/tournament-state.schema.json` (ae/tournament-state 1.0.0) is a JSON Schema 2020-12 document of the stored tournament state.
+- `interfaces/tournament.json` defines `tournament` (com.clodhub/tournament) version 1.0.0: an OpenRPC 1.3.2 document, one method per function (a member of a created object is `<Type>.<member>`), with parameter, result and data types as JSON Schema 2020-12 (`components.schemas`) and thrown errors under `errors`.
+- `interfaces/tournament-state.schema.json` (com.clodhub/tournament-state 1.0.0) is a JSON Schema 2020-12 document of the stored tournament state.
 
 ## Required interfaces
-- `chip-ledger` (ae/chip-ledger) version 1.0.0, supplied by the recipe or application.
-- `level-schedule` (ae/level-schedule) version 1.0.0, supplied by the recipe or application.
-- `seating` (ae/seating) version 1.0.0, supplied by the recipe or application.
+- `chip-ledger` (com.clodhub/chip-ledger) version 1.0.0, supplied by the recipe or application.
+- `level-schedule` (com.clodhub/level-schedule) version 1.0.0, supplied by the recipe or application.
+- `seating` (com.clodhub/seating) version 1.0.0, supplied by the recipe or application.
 
 Each `interfaces/required-<id>.json` is a byte copy of the providing component's document.
 

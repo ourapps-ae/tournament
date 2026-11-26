@@ -1,7 +1,7 @@
 {
   "openrpc": "1.3.2",
   "info": {
-    "title": "ae/level-schedule",
+    "title": "com.clodhub/level-schedule",
     "version": "1.0.0",
     "description": "Stakes that rise on a timer. A level is {label, values}: the values are whatever the game steps up (blinds, an ante, a target score); the component never looks inside them except to scale them. TypeScript, `implementation/server/levels.ts`. Methods named `ScheduleApi.<name>` are members of the object createScheduleApi returns: the tournament's view, with the clock reading as the only argument."
   },

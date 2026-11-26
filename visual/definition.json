@@ -1,17 +1,17 @@
 {
-  "id": "clodhub.tournament",
+  "id": "com.clodhub.tournament",
   "name": "Tournament",
   "kind": "component",
   "status": "example",
-  "package": "clodhub/tournament",
-  "version": "0.10.0",
+  "package": "pkg:clod/com.clodhub/tournament",
+  "version": "0.11.0",
   "ports": [
     {
       "id": "chip-ledger",
       "name": "Chip ledger",
       "direction": "input",
       "kind": "interface",
-      "type": "ae/chip-ledger",
+      "type": "com.clodhub/chip-ledger",
       "version": "1.0.0",
       "required": true,
       "cardinality": "one"
@@ -21,7 +21,7 @@
       "name": "Level schedule",
       "direction": "input",
       "kind": "interface",
-      "type": "ae/level-schedule",
+      "type": "com.clodhub/level-schedule",
       "version": "1.0.0",
       "required": true,
       "cardinality": "one"
@@ -31,7 +31,7 @@
       "name": "Seating",
       "direction": "input",
       "kind": "interface",
-      "type": "ae/seating",
+      "type": "com.clodhub/seating",
       "version": "1.0.0",
       "required": true,
       "cardinality": "one"
@@ -41,7 +41,7 @@
       "name": "Tournament",
       "direction": "output",
       "kind": "interface",
-      "type": "ae/tournament",
+      "type": "com.clodhub/tournament",
       "version": "1.0.0"
     }
   ],
